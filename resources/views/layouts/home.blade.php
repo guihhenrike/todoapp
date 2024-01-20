@@ -26,7 +26,9 @@
                         <h2>Progresso do dia</h2>
                         <div class="graph_header-line"></div>
                         <div class="graph_header-date">
-                            Data
+                            <img src="/assets/images/icon-prev.png" alt="">
+                                30 de Set
+                            <img src="/assets/images/icon-next.png" alt="">
                         </div>
                     </div>
                     <div class="graph_header-subtitle">Tarefas: <strong>3/6</strong></div>
