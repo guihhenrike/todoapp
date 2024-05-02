@@ -33,17 +33,9 @@
             </select>
         </div>
         <div class="task-list">
-            @php
-                $tasks = [
-                    ['id' => 1, 'done' => false, 'title' => 'Minha Primeira Task', 'category' => 'Categoria 1'],
-                    ['id' => 2, 'done' => true, 'title' => 'Minha Segunda Task', 'category' => 'Categoria 2'],
-                    ['id' => 3, 'done' => false, 'title' => 'Minha Terceira Task', 'category' => 'Categoria 3'],
-                ]
-            @endphp
-            <x-task :data=$tasks[0] />
-            <x-task :data=$tasks[1] />
-            <x-task :data=$tasks[2] />
-            <x-task />
+            @foreach($tasks as $task)
+            <x-task :data=$task />
+            @endforeach
         </div>
         </div>
     </section>
