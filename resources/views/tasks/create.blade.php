@@ -6,33 +6,13 @@
     <section id="create_task_section">
         <h1>Criar Tarefa</h1>
         <form action="">
-            <div class="inputArea">
-                <label for="title">
-                    Título da Task
-                </label>
-                <input id="title" name="title" placeholder="Digite o título da tarefa" required>
-            </div>
-            <div class="inputArea">
-                <label for="due_date">
-                    Data da Realização
-                </label>
-                <input type="date" id="due_date" name="due_date" placeholder="Digite o título da tarefa" required>
-            </div>
-            <div class="inputArea">
-                <label for="category">
-                    Categoria
-                </label>
-                <select id="category" name="category" required>
-                    <option selected disabled value="">Selecione a Categoria</option>
-                    <option value="">Valor qualquer</option>
-                </select>
-            </div>
-            <div class="inputArea">
-                <label for="description">
-                    Descrição da Tarefa
-                </label>
-                <textarea name="description" placeholder="Digite uma descrição para sua tarefa" id="description" cols="55" rows="10"></textarea>
-            </div>
+            <x-form.text_input name="title" label="Título da Task" placeholder="Digite o título da tarefa" required="required" />
+            <x-form.text_input type="date" name="due_date" label="Data de Realização" placeholder="Escolha data da tarefa" required="required" />
+            <x-form.select_input name="category" label="Categoria" required="required">
+                <option value="">Valor qualquer</option>
+            </x-form.select_input>
+            <x-form.textarea_input label="Descrição da Tarefa" name="description" placeholder="Digite uma descrição para sua tarefa"></x-form.textarea_input>
+            <x-form.form_button resetTxt="Resetar" submitTxt="Criar Tarefa" />
         </form>
     </section>
 
