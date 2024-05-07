@@ -210,13 +210,13 @@ h2{
     font-weight: bold;
 }
 
-#create_task_section {
+#task_section {
     margin: auto;
     background-color: #f4d6d6;
     padding: 20px;
     border-radius: 2%;
 }
-#create_task_section>h1 {
+#task_section>h1 {
     text-align: center;
     margin-bottom: 20px;
 }

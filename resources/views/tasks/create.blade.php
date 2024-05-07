@@ -3,7 +3,7 @@
         <a href="{{route('home')}}" class="btn btn-primary">Voltar</a>
     </x-slot:btn>
 
-    <section id="create_task_section">
+    <section id="task_section">
         <h1>Criar Tarefa</h1>
         <form method="post" action="{{route('task.create_action')}}">
             @csrf
