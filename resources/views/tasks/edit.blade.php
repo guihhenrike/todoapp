@@ -6,9 +6,12 @@
         <h1>Atualizar Tarefa</h1>
         <form method="post" action="{{route('task.edit_action')}}">
             @csrf
+            <input type="hidden" name="id" value="{{$task->id}}" />
+            
+            <x-form.checkbox  label="Tarefa realizada?" name="is_done"  checked="{{$task->is_done}}" />
 
             <x-form.text_input name="title" label="Título da Task" placeholder="Digite o título da tarefa" value="{{$task->title}}" required="required" />
-            <x-form.date_input type="date" name="due_date" label="Data de Realização" value="{{$task->due_date}}" required="required" />
+            <x-form.date_input type="datetime-local" name="due_date" label="Data de Realização" value="{{$task->due_date}}" required="required" />
             <x-form.select_input name="category_id" label="Categoria" required="required">
                 @foreach($categories as $category)
                 <option value="{{$category->id}}"

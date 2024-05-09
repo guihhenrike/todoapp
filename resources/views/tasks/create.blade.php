@@ -9,7 +9,7 @@
             @csrf
 
             <x-form.text_input name="title" label="Título da Task" placeholder="Digite o título da tarefa" required="required" />
-            <x-form.date_input type="date" name="due_date" label="Data de Realização" placeholder="Escolha data da tarefa" required="required" />
+            <x-form.date_input type="datetime-local" name="due_date" label="Data de Realização" placeholder="Escolha data da tarefa" required="required" />
             <x-form.select_input name="category_id" label="Categoria" required="required">
                 @foreach($categories as $category)
                 <option value="{{$category->id}}">{{$category->title}}</option>

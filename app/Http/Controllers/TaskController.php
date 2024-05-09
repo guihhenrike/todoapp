@@ -44,11 +44,35 @@ class TaskController extends Controller
     }
 
     public function edit_action(Request $request){
-        return 'ok';
+        // "_token" => "rHTOpLZqxBXUjFztAbGn1vEzd3JrIK0cm8NnrIXK"
+        // "id" => "1"
+        // "title" => "aaaaaaaaaaaaaa"
+        // "due_date" => "2002-08-12T16:49:26"
+        // "category_id" => "9"
+        // "description" => "aaaaaaaaa"
+        
+        $request_data = $request->only(['is_done', 'title', 'due_date', 'category_id', 'description']);
+       
+       $request_data['is_done'] = $request->is_done ? true : false;
+        dd($request_data);
+
+        $task = Task::find($request->id);
+        if (!$task) {
+            return 'Erro de task nao existente';
+        }
+        $task->update($request_data);
+        $task->save();
+        return redirect(route('home'));
     }
 
     public function delete(Request $request) {
-        // deleta e redireciona para home
+        $id = $request->id;
+        $task = Task::find($id);
+
+        if ($task) {
+            $task->delete();
+        }
+
         return redirect(route('home'));
     }
 }

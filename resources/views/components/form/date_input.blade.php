@@ -3,8 +3,8 @@
         {{$label ?? ''}}
     </label>
     <input
-    type="date"
+    type="datetime-local"
     id="{{$name}}" name="{{$name}}" placeholder="{{$placeholder ?? '' }} " 
-    {{empty($required) ? '': 'required'}}
+    {{empty($required) ? '': 'required'}} value="{{$value ?? ''}}"
     />
 </div>
