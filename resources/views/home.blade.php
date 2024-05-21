@@ -4,7 +4,7 @@
         <a href="{{route('task.create')}}" class="btn btn-primary">Criar Tarefa</a>
     </x-slot:btn>
     <x-form.button type="submit">
-        <a href="{{route('logout')}}"  class="btn">Sair</a>
+        <a href="{{route('logout')}}" class="btn">Sair</a>
     </x-form.button>
 
     <section class="graph">
@@ -42,4 +42,57 @@
         </div>
         </div>
     </section>
+
+    <!-- <script>
+
+        function changeTaskStatutsFilter(e) {
+        // alert(e.value)
+        if (e.value === 'task_pending') {
+            showAllTasks();
+            document.querySelectorAll('.task_done').forEach(function (element) {
+            element.style.display = 'none';
+            })
+        } else if (e.value === 'task_done') {
+            showAllTasks();
+            document.querySelectorAll('.task_pending').forEach(function (element) {
+            element.style.display = 'none';
+            })
+        }else {
+            showAllTasks();
+        }
+        }
+
+        function showAllTasks() {
+        document.querySelectorAll('.taks').forEach(function (element) {
+            element.style.display = 'block';
+        })
+        }
+
+    </script> -->
+
+    <script>
+        async function taskUpdate(element) {
+            let status = element.checked;
+            let taskId = element.dataset.id;
+            let url = '{{ route("task.update")}}';
+            let rawResult = await fetch(url, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'accept': 'application/json'
+                },
+                body: JSON.stringify({
+                    status,
+                    taskId,
+                    _token: '{{csrf_token()}}'
+                })
+            });
+            let result = await rawResult.json();
+            if (result.success) {
+                alert('Task Atualizada com Sucesso!')
+            } else {
+                //element.checked = !status;
+            }
+        }
+    </script>
 </x-layout>
