@@ -12,9 +12,13 @@
             <h2>Progresso do dia </h2>
             <div class="graph_header-line"></div>
             <div class="graph_header-date">
-                <img src="/assets/images/icon-prev.png" alt="">
-                30 de Set
-                <img src="/assets/images/icon-next.png" alt="">
+                <a href="{{route('home', ['date' => $date_prev_button])}}">
+                    <img src="/assets/images/icon-prev.png" alt="">
+                </a>
+                    {{$date_as_string}}
+                <a href="{{route('home', ['date' => $date_next_button])}}">
+                    <img src="/assets/images/icon-next.png" alt="">
+                </a>
             </div>
         </div>
         <div class="graph_header-subtitle">Tarefas: <strong>3/6</strong></div>
