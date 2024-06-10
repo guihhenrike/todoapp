@@ -3,9 +3,10 @@
     <x-slot:btn>
         <a href="{{route('task.create')}}" class="btn btn-primary">Criar Tarefa</a>
     </x-slot:btn>
-    <x-form.button type="submit">
+
+    <!-- <x-form.button type="submit">
         <a href="{{route('logout')}}" class="btn">Sair</a>
-    </x-form.button>
+    </x-form.button> -->
 
     <section class="graph">
         <div class="graph_header">
@@ -15,20 +16,22 @@
                 <a href="{{route('home', ['date' => $date_prev_button])}}">
                     <img src="/assets/images/icon-prev.png" alt="">
                 </a>
-                    {{$date_as_string}}
+                {{$date_as_string}}
                 <a href="{{route('home', ['date' => $date_next_button])}}">
                     <img src="/assets/images/icon-next.png" alt="">
                 </a>
             </div>
         </div>
-        <div class="graph_header-subtitle">Tarefas: <strong>3/6</strong></div>
+        <div class="graph-header-subtitle">
+            Tarefas: <b>{{ $tasks_count - $undone_tasks_count }}/{{ $tasks_count }}</b>
+        </div>
 
         <div class="graph-placeholder">
         </div>
 
-        <div class="tasks_left_footer">
+        <div class="task-left-footer">
             <img src="/assets/images/icon-info.png" alt="">
-            Restam 3 tarefas para serem realizadas
+            Restam {{ $undone_tasks_count }} tarefas para serem realizadas.
         </div>
 
     </section>
